@@ -31,6 +31,7 @@ const TESTS = [
   'add-loops',
   'add-object-properties',
   'add-object-spreads',
+  'add-object-type-spreads',
   'add-polymorphic-type-bounds',
   'add-polymorphic-types',
   'add-react-when-using-jsx',

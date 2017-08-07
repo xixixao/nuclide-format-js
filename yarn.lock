@@ -2464,9 +2464,9 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
-jscodeshift@^0.3.31:
-  version "0.3.31"
-  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.3.31.tgz#f04ee65afa0645fe5f8eedecc3482decfdcc5ffc"
+jscodeshift@^0.3.32:
+  version "0.3.32"
+  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.3.32.tgz#dece5eb602f16340d8d954c7f96ac907c502eabb"
   dependencies:
     async "^1.5.0"
     babel-core "^5"

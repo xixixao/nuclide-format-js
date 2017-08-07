@@ -1,0 +1,3 @@
+import Y from 'Y';
+
+type X = {...Y, a: number};
