@@ -11,8 +11,8 @@
 import type {SourceOptions} from './options/SourceOptions';
 import type {ParsingInfo} from './requires/transform';
 
+import {parse} from 'babylon';
 import jscs from 'jscodeshift';
-import getParser from 'jscodeshift/dist/getParser';
 
 import Options from './options/Options';
 import nuclideTransform from './nuclide/transform';
@@ -26,7 +26,7 @@ function transform(
   Options.validateSourceOptions(options);
 
   // Parse the source code once, then reuse the root node
-  const root = jscs(source, {parser: getParser('babylon')});
+  const root = jscs(source, {parser: {parse: parseWithBabylon}});
 
   // Add use-strict
   // TODO: implement this, make it configurable
@@ -41,5 +41,31 @@ function transform(
 
   return {output, info};
 }
+
+const babylonOptions = {
+  sourceType: 'module',
+  allowImportExportEverywhere: true,
+  allowReturnOutsideFunction: true,
+  plugins: [
+    'jsx',
+    'flow',
+    'asyncFunctions',
+    'classConstructorCall',
+    'doExpressions',
+    'trailingFunctionCommas',
+    'objectRestSpread',
+    'decorators',
+    'classProperties',
+    'exportExtensions',
+    'exponentiationOperator',
+    'asyncGenerators',
+    'functionBind',
+    'functionSent',
+  ],
+};
+
+function parseWithBabylon (code) {
+  return parse(code, babylonOptions);
+};
 
 module.exports = transform;
